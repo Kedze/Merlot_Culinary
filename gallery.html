@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Merlot Culinary | Gallery</title>
+<link rel="icon" href="img/favicon.png">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- animate CSS -->
+<link rel="stylesheet" href="css/animate.css">
+<!-- owl carousel CSS -->
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<!-- themify CSS -->
+<link rel="stylesheet" href="css/themify-icons.css">
+<!-- flaticon CSS -->
+<link rel="stylesheet" href="css/flaticon.css">
+<!-- font awesome CSS -->
+<link rel="stylesheet" href="css/magnific-popup.css">
+<!-- swiper CSS -->
+<link rel="stylesheet" href="css/slick.css">
+<link rel="stylesheet" href="css/gijgo.min.css">
+<link rel="stylesheet" href="css/nice-select.css">
+<link rel="stylesheet" href="css/all.css">
+<!-- style CSS -->
+<link rel="stylesheet" href="css/style.css">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  text-align: center;
+  padding: 32px;
+}
+
+.row {
+  display: -ms-flexbox; /* IE 10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE 10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  -ms-flex: 50%; /* IE 10 */
+  flex: 50%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+
+.gallery-section {
+    padding: 60px 0;
+    background: #f8f9fa;
+}
+
+.gallery-container {
+    padding: 0 15px;
+}
+
+.gallery-filters {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.gallery-filters button {
+    border: none;
+    outline: none;
+    padding: 8px 25px;
+    background-color: #fff;
+    margin: 0 5px 10px;
+    border-radius: 25px;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-filters button:hover,
+.gallery-filters button.active {
+    background-color: #ff6426;
+    color: white;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    color: white;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-item-overlay {
+    opacity: 1;
+}
+
+.gallery-item-overlay h4 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.gallery-item-overlay p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .gallery-filters button {
+        padding: 6px 20px;
+        font-size: 13px;
+    }
+}
+
+/* Magnific Popup animation */
+.mfp-zoom-in .mfp-with-anim {
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    transform: scale(0.8);
+}
+
+.mfp-zoom-in.mfp-ready .mfp-with-anim {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.mfp-zoom-in.mfp-removing .mfp-with-anim {
+    transform: scale(0.8);
+    opacity: 0;
+}
+
+/* Popup navigation buttons */
+.mfp-arrow {
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.mfp-arrow:hover {
+    opacity: 1;
+}
+
+/* Counter style */
+.mfp-counter {
+    color: #fff;
+    font-size: 14px;
+}
+
+/* Caption style */
+.mfp-bottom-bar {
+    background: rgba(0,0,0,0.7);
+    padding: 15px;
+    margin-top: -40px;
+}
+
+.gallery-item {
+    transition: all 0.3s ease-in-out;
+}
+
+.gallery-filters button {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-filters button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ff6426;
+    transition: width 0.3s ease;
+}
+
+.gallery-filters button:hover::after {
+    width: 100%;
+}
+
+.gallery-filters button.active::after {
+    width: 100%;
+}
+
+/* Add these new styles */
+.category-description {
+    text-align: center;
+    margin: 20px 0 30px;
+    min-height: 50px;
+    position: relative;
+}
+
+.category-description p {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    color: #666;
+    font-size: 16px;
+    font-style: italic;
+    margin: 0;
+}
+
+.category-description p.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.loading-animation {
+    text-align: center;
+    padding: 40px;
+    display: none;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #ff6426;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Hover effect for gallery items */
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,100,38,0.2), rgba(255,100,38,0));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.gallery-item:hover::before {
+    opacity: 1;
+}
+
+/* Improved button styling */
+.gallery-filters button {
+    background: linear-gradient(45deg, #ff6426, #ff8553);
+    color: white;
+    border-radius: 25px;
+    box-shadow: 0 2px 5px rgba(255,100,38,0.2);
+    transition: all 0.3s ease;
+}
+
+.gallery-filters button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255,100,38,0.3);
+}
+
+.gallery-filters button.active {
+    background: linear-gradient(45deg, #e54d0f, #ff6426);
+    transform: translateY(0);
+}
+
+/* Scroll to top button */
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    background: #ff6426;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-top:hover {
+    background: #e54d0f;
+    transform: translateY(-3px);
+}
+</style>
+</head>
+<body>
+
+  <header class="main_menu">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand" href="index.html"> <img src="img/logo_main.png" alt="logo"> </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse main-menu-item justify-content-end"
+                            id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Home</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Culinary
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#">Courses</a>
+                                        <a class="dropdown-item" href="students.html">Students</a>
+                                        
+                                        
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#staff.html">Staff</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    About Us
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="about.html">Our Story</a>
+                                        <a class="dropdown-item" href="gallery.html">Gallery</a>
+                                        
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="career.html">Career</a>
+                                </li>
+                               
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    <div class="menu_btn">
+                        <a href="#" class="single_page_btn d-none d-sm-block">Enroll Now</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- breadcrumb start-->
+<section class="breadcrumb breadcrumb_bg">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="breadcrumb_iner text-center">
+                  <div class="breadcrumb_iner_item">
+                      <h2>Our Gallery</h2>
+                      <p>Explore our culinary journey through images</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- breadcrumb end-->
+
+<!-- Gallery Section -->
+<section class="gallery-section">
+    <div class="container gallery-container">
+        <div class="gallery-filters">
+            <button class="active" data-filter="all">All</button>
+            <button data-filter="courses">Courses</button>
+            <button data-filter="events">Events</button>
+            <button data-filter="students">Students</button>
+            <button data-filter="facilities">Facilities</button>
+        </div>
+
+        <div class="category-description">
+            <p class="active" data-category="all">Explore our complete collection of culinary moments</p>
+            <p data-category="courses">Discover our professional culinary training programs</p>
+            <p data-category="events">Experience our exciting culinary events and competitions</p>
+            <p data-category="students">See our students mastering the art of cooking</p>
+            <p data-category="facilities">Tour our state-of-the-art culinary facilities</p>
+        </div>
+
+        <div class="loading-animation">
+            <div class="spinner"></div>
+            <p>Loading Gallery...</p>
+        </div>
+
+        <div class="gallery-grid">
+            <!-- Courses Category -->
+            <div class="gallery-item" data-category="courses">
+                <img src="/img/gallery/landscape/L1.jpg" alt="Professional Cooking">
+                <div class="gallery-item-overlay">
+                    <h4>Professional Cooking Class</h4>
+                    <p>Advanced culinary techniques in action</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="courses">
+                <img src="/img/gallery/landscape/L1.jpg" alt="Pastry Making">
+                <div class="gallery-item-overlay">
+                    <h4>Pastry Arts</h4>
+                    <p>Learning the art of pastry making</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="courses">
+                <img src="/img/gallery/landscape/L2.jpg" alt="Culinary Skills">
+                <div class="gallery-item-overlay">
+                    <h4>Culinary Skills</h4>
+                    <p>Mastering fundamental techniques</p>
+                </div>
+            </div>
+
+            <!-- Events Category -->
+            <div class="gallery-item" data-category="events">
+                <img src="/img/gallery/l1.jpeg" alt="Food Festival">
+                <div class="gallery-item-overlay">
+                    <h4>Food Festival 2023</h4>
+                    <p>Celebrating culinary excellence</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="events">
+                <img src="/img/gallery/l2.jpeg" alt="Cooking Competition">
+                <div class="gallery-item-overlay">
+                    <h4>Cooking Competition</h4>
+                    <p>Students showcasing their skills</p>
+                </div>
+            </div>
+
+            <!-- Students Category -->
+            <div class="gallery-item" data-category="students">
+                <img src="/img/gallery/potraits/P1.jpg" alt="Student Practice">
+                <div class="gallery-item-overlay">
+                    <h4>Student Practice Session</h4>
+                    <p>Hands-on learning experience</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="students">
+                <img src="/img/gallery/potraits/P2.jpg" alt="Student Workshop">
+                <div class="gallery-item-overlay">
+                    <h4>Student Workshop</h4>
+                    <p>Interactive learning sessions</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="students">
+                <img src="/img/gallery/potraits/P3.jpg" alt="Student Activities">
+                <div class="gallery-item-overlay">
+                    <h4>Student Activities</h4>
+                    <p>Learning through practical experience</p>
+                </div>
+            </div>
+
+            <!-- Facilities Category -->
+            <div class="gallery-item" data-category="facilities">
+                <img src="/img/gallery/l3.jpeg" alt="Kitchen Facility">
+                <div class="gallery-item-overlay">
+                    <h4>Modern Kitchen Facility</h4>
+                    <p>State-of-the-art equipment</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="facilities">
+                <img src="/img/gallery/landscape/L4.jpg" alt="Training Area">
+                <div class="gallery-item-overlay">
+                    <h4>Training Area</h4>
+                    <p>Spacious learning environment</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="facilities">
+                <img src="/img/gallery/landscape/L5.jpg" alt="Equipment">
+                <div class="gallery-item-overlay">
+                    <h4>Professional Equipment</h4>
+                    <p>Industry-standard cooking facilities</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.gallery-filters button');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const loadingAnimation = document.querySelector('.loading-animation');
+    const scrollTop = document.querySelector('.scroll-top');
+    const categoryDescriptions = document.querySelectorAll('.category-description p');
+
+    // Scroll to top functionality
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            scrollTop.classList.add('visible');
+        } else {
+            scrollTop.classList.remove('visible');
+        }
+    });
+
+    scrollTop.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Update category description
+    function updateCategoryDescription(category) {
+        categoryDescriptions.forEach(desc => {
+            if (desc.getAttribute('data-category') === category) {
+                desc.classList.add('active');
+            } else {
+                desc.classList.remove('active');
+            }
+        });
+    }
+
+    // Filter functionality with loading animation
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+            
+            // Show loading animation
+            loadingAnimation.style.display = 'block';
+            
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+
+            // Update category description
+            updateCategoryDescription(filter);
+
+            // Filter items with delay for loading animation
+            setTimeout(() => {
+                galleryItems.forEach(item => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.8)';
+                    
+                    setTimeout(() => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'scale(1)';
+                            }, 50);
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    }, 300);
+                });
+                
+                // Hide loading animation
+                loadingAnimation.style.display = 'none';
+            }, 500);
+        });
+    });
+});
+</script>
+
+<!-- footer part start-->
+<footer class="footer-area">
+  <div class="container">
+      <div class="row">
+          <div class="col-xl-3 col-sm-6 col-md-3 col-lg-3">
+              <div class="single-footer-widget footer_1">
+                  <h4>Opening Hours</h4>
+                  <p>Monday: 8:00am - 5pm</p>
+                  <p>Tuesday: 8:00am - 5pm</p>
+                  <p>Wednesday: 8:00am - 5pm</p>
+                  <p>Thursday: 8:00am - 5pm</p>
+                  <p>Friday: 8:00am - 5pm</p>
+                  <p>Saturday: 8:00am - 5pm</p>
+                  
+              </div>
+          </div>
+          <div class="col-xl-3 col-sm-6 col-md-2 col-lg-3">
+              <div class="single-footer-widget footer_2">
+                  <h4>Training Center</h4>
+                  <div class="contact_info">
+                      <ul>
+                          <li><a href="#">Management</a></li>
+                          <li><a href="#">Tutors</a></li>
+                          <li><a href="#">Students Info</a></li>
+                          <li><a href="#"></a></li>
+                          <li><a href="#"> Our Shops</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+          <div class="col-xl-3 col-sm-6 col-md-2 col-lg-3">
+              <div class="single-footer-widget footer_2">
+                  <h4>Our Programs</h4>
+                  <div class="contact_info">
+                      <ul>
+                          <li><a href="#">The Teaching Kitchen</a></li>
+                          <li><a href="#">Healthy Foods + Wellness</a></li>
+                          <li><a href="#">Long Courses</a></li>
+                          <li><a href="#"> Short Courses</a></li>
+
+                      </ul>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-xl-3 col-sm-6 col-md-3 col-lg-3">
+              <div class="single-footer-widget footer_2">
+                  <h4>Contact Us</h4>
+                  <div class="contact_info">
+                      <p><span> Address :</span>South ridge Extention, Plot 41 Block J, sector 6, Sunyani</p>
+                      <p><span> Phone :</span> +233 24 2040 127</p>
+                      <p>Email :<a href="mailto:info@merlotculinary.com?subject=Send us your queries"> info@merlotculinary.com</a></p>
+                  </div>
+              </div>
+          </div>
+          
+      </div>
+      <div class="copyright_part_text">
+          <div class="row">
+              <div class="col-lg-8">
+                  <p class="footer-text m-0">
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Powered by <a href="#" target="_blank">Sigil Tech</a>
+</p>
+              </div>
+              <div class="col-lg-4">
+                  <div class="copyright_social_icon text-right">
+                      <a href="#"><i class="fab fa-facebook-f"></i></a>
+                      <a href="https://twitter.com/Merlot_Culinary"><i class="fab fa-twitter"></i></a>
+                      <a href="https://www.instagram.com/merlot_culinary/"><i class="fab fa-instagram"></i></a>
+                      <a href="https://www.linkedin.com/company/103748359/admin/feed/posts/"><i class="fab fa-linkedin"></i></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</footer>
+<!-- footer part end-->
+
+<!-- jquery plugins here-->
+<!-- jquery -->
+<script src="js/jquery-1.12.1.min.js"></script>
+<!-- popper js -->
+<script src="js/popper.min.js"></script>
+<!-- bootstrap js -->
+<script src="js/bootstrap.min.js"></script>
+<!-- easing js -->
+<script src="js/jquery.magnific-popup.js"></script>
+<!-- swiper js -->
+<script src="js/swiper.min.js"></script>
+<!-- swiper js -->
+<script src="js/masonry.pkgd.js"></script>
+<!-- particles js -->
+<script src="js/owl.carousel.min.js"></script>
+<!-- swiper js -->
+<script src="js/slick.min.js"></script>
+<script src="js/gijgo.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<!-- custom js -->
+<script src="js/custom.js"></script>
+
+<div class="scroll-top">
+    <i class="ti-arrow-up"></i>
+</div>
+
+</body>
+</html>
